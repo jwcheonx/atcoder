@@ -1,17 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool isPalindrome(int n) {
+  int s = n, r = 0;
+  while (s > 0) {
+    r = r * 10 + s % 10;
+    s /= 10;
+  }
+  return n == r;
+}
+
 int main() {
-  int a, b, ans;
+  int a, b, cnt;
   cin >> a >> b;
 
   while (a <= b) {
-    string str = to_string(a);
-    if (str[0] == str[4] && str[1] == str[3]) {
-      ans++;
-    }
+    if (isPalindrome(a)) cnt++;
     a++;
   }
 
-  cout << ans << endl;
+  cout << cnt << endl;
 }
