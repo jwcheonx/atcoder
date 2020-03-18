@@ -11,10 +11,5 @@ int main() {
     q /= 10;
   }
 
-  if (n % sum == 0) {
-    cout << "Yes";
-  } else {
-    cout << "No";
-  }
-  cout << endl;
+  cout << (n % sum == 0 ? "Yes" : "No") << endl;
 }
