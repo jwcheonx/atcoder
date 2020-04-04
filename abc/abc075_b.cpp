@@ -8,12 +8,9 @@ bool containsBomb(char c) {
 int main() {
   int h, w; // height and width
   cin >> h >> w;
-
-  vector<string> v;
+  vector<string> v(h);
   for (int i = 0; i < h; i++) {
-    string s;
-    cin >> s;
-    v.push_back(s);
+    cin >> v[i];
   }
 
   for (int i = 0; i < h; i++) {
