@@ -5,18 +5,15 @@ using namespace std;
 int main() {
   int h, w;
   cin >> h >> w;
+  vector<string> v(h);
+  rep(i, h) cin >> v.at(i);
 
-  rep(i, w + 2) cout << '#';
-  cout << endl;
+  string s = string(w + 2, '#');
+  cout << s << endl;
 
-  rep(i, h) rep(j, w) {
-    char c;
-    cin >> c;
-    if (j == 0) cout << '#';
-    cout << c;
-    if (j == w - 1) cout << '#' << endl;
+  rep(i, h) {
+    cout << '#' << v.at(i) << '#' << endl;
   }
 
-  rep(i, w + 2) cout << '#';
-  cout << endl;
+  cout << s << endl;
 }
