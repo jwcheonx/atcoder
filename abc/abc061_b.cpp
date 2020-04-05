@@ -6,15 +6,15 @@ int main() {
   int n, m;
   cin >> n >> m;
 
-  vector<int> v;
+  vector<int> v(n, 0);
   rep(i, m) {
     int a, b;
     cin >> a >> b;
-    v.push_back(a);
-    v.push_back(b);
+    v.at(a - 1)++;
+    v.at(b - 1)++;
   }
 
-  for (int i = 1; i < n + 1; i++) { // from 1 to n
-    cout << count(v.begin(), v.end(), i) << endl;
+  rep(i, n) {
+    cout << v.at(i) << endl;
   }
 }
