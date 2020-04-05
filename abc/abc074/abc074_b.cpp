@@ -6,8 +6,8 @@ int main() {
   cin >> n >> k;
 
   for (int i = 0; i < n; i++) {
-      int x; cin >> x;
-      sum += min(x, k - x) * 2;
+    int x; cin >> x;
+    sum += min(x, k - x) * 2;
   }
 
   cout << sum << endl;
