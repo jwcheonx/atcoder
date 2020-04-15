@@ -3,17 +3,12 @@ using namespace std;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 
 int main() {
-  int n; cin >> n;
-  vector<int> v(n);
-  rep(i, n) cin >> v.at(i);
-  sort(v.begin(), v.end());
-
-  int ans = 1;
+  int n, d; cin >> n;
+  set<int> s;
   rep(i, n) {
-    if (i < n - 1 && v.at(i) < v.at(i + 1)) {
-      ans++;
-    }
+    cin >> d;
+    s.insert(d);
   }
 
-  cout << ans << endl;
+  cout << s.size() << endl;
 }
