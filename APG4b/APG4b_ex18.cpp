@@ -5,7 +5,6 @@ using namespace std;
 int main() {
   int n, m;
   cin >> n >> m;
-
   vector<vector<char>> ans(n, vector<char>(n, '-'));
 
   rep(i, m) {
