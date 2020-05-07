@@ -5,12 +5,12 @@ using namespace std;
 int main() {
   int h, w;
   cin >> h >> w;
-  vector<vector<char>> ans(h, vector<char>(w));
+
+  vector<string> ans(h);
+  rep(i, h) cin >> ans.at(i);
+
   vector<bool> row(h), col(w);
-
   rep(i, h) rep(j, w) {
-    cin >> ans.at(i).at(j);
-
     if (ans.at(i).at(j) == '#') {
       row.at(i) = true;
       col.at(j) = true;
@@ -18,13 +18,13 @@ int main() {
   }
 
   rep(i, h) {
-    if (!row.at(i)) continue; // skip the current row
-
-    rep(j, w) {
-      if (!col.at(j)) continue; // skip the current square
-      cout << ans.at(i).at(j);
+    if (row.at(i)) {
+      rep(j, w) {
+        if (col.at(j)) {
+          cout << ans.at(i).at(j);
+        }
+      }
     }
-
     cout << endl;
   }
 }
