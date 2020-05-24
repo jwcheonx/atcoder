@@ -3,7 +3,7 @@ using namespace std;
 
 int sum_range(int a, int b) {
   if (a == b) return a;
-  return b + sum_range(a, b - 1); // (sum of a to b) = b + (sum of a to (b - 1))
+  return sum_range(a, b - 1) + b; // (sum of a to b) = (sum of a to (b - 1)) + b
 }
 
 // int sum_range(int a, int b) {
