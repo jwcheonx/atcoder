@@ -9,6 +9,14 @@ vector<vector<bool>> visited;
 vector<int> dx = {0, 1, -1, 0};
 vector<int> dy = {1, 0, 0, -1};
 
+bool is_valid_move(vector<string> &v, int ni, int nj) {
+  if (ni <= -1 || ni >= n || nj <= -1 || nj >= n) return false;
+  if (v.at(ni).at(nj) == '#') return false;
+  if (visited.at(ni).at(nj)) return false;
+
+  return true;
+}
+
 void func(vector<string> &v, int i, int j) {
   if (i == n - 1 && j == n - 1) {
     cout << "Yes" << endl;
@@ -19,21 +27,15 @@ void func(vector<string> &v, int i, int j) {
     int ni = i + dy.at(k);
     int nj = j + dx.at(k);
 
-    if (ni < 0 || ni > n - 1 ||
-        nj < 0 || nj > n - 1 ||
-        v.at(ni).at(nj) == '#' ||
-        visited.at(ni).at(nj)) {
-      if (k == 3) { // all paths are blocked
-        cout << "No" << endl;
-        return;
-      } else {
-        continue;
-      }
+    if (is_valid_move(v, ni, nj)) {
+      visited.at(i).at(j) = true;
+      func(v, ni, nj);
+      return;
     }
-
-    visited.at(i).at(j) = true;
-    func(v, ni, nj);
-    return;
+    else if (k == 3) { // all paths are blocked
+      cout << "No" << endl;
+      return;
+    }
   }
 }
 
