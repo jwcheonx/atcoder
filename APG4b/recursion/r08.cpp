@@ -3,7 +3,7 @@ using namespace std;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 
 int n;
-vector<vector<bool>> visited;
+vector<vector<bool>> checked;
 
 // priority: lower > right > left > upper
 vector<int> dx = {0, 1, -1, 0};
@@ -12,7 +12,7 @@ vector<int> dy = {1, 0, 0, -1};
 bool is_valid_move(vector<string> &board, int ni, int nj) {
   if (ni <= -1 || ni >= n || nj <= -1 || nj >= n) return false;
   if (board.at(ni).at(nj) == '#') return false;
-  if (visited.at(ni).at(nj)) return false;
+  if (checked.at(ni).at(nj)) return false;
 
   return true;
 }
@@ -20,7 +20,8 @@ bool is_valid_move(vector<string> &board, int ni, int nj) {
 bool reachable(vector<string> &board, int i, int j) {
   if (i == n - 1 && j == n - 1) return true;
 
-  visited.at(i).at(j) = true;
+  checked.at(i).at(j) = true;
+
   bool rslt = false;
   rep(k, 4) {
     int ni = i + dy.at(k);
@@ -36,9 +37,11 @@ bool reachable(vector<string> &board, int i, int j) {
 
 int main() {
   cin >> n;
+
   vector<string> board(n);
   rep(i, n) cin >> board.at(i);
-  visited = vector<vector<bool>>(n, vector<bool>(n, false));
+
+  checked = vector<vector<bool>>(n, vector<bool>(n, false));
 
   cout << (reachable(board, 0, 0) ? "Yes" : "No") << endl;
 }
