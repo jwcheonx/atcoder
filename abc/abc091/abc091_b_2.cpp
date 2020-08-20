@@ -19,8 +19,8 @@ int main() {
   }
 
   int ans = 0;
-  for (auto it : mp){
-    ans = max(ans, it.second);
+  for (auto &p : mp) {
+    ans = max(ans, p.second);
   }
 
   cout << ans << endl;

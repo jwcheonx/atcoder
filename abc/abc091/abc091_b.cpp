@@ -12,7 +12,7 @@ int main() {
   vector<string> t(m);
   rep(i, m) cin >> t.at(i);
 
-  int x = 0;
+  int ans = 0;
   string checked = "";
   rep(i, n) {
     string cur = s.at(i);
@@ -20,10 +20,10 @@ int main() {
 
     int earn = count(s.begin(), s.end(), cur);
     int lose = count(t.begin(), t.end(), cur);
-    if (x < earn - lose) x = earn - lose;
+    ans = max(ans, earn - lose);
 
     checked = cur;
   }
 
-  cout << x << endl;
+  cout << ans << endl;
 }
