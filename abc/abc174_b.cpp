@@ -2,6 +2,10 @@
 using namespace std;
 #define rep(i, n) for (int i = 0; i < (int)(n); i++)
 
+auto sq(int n) {
+  return pow(n, 2);
+}
+
 int main() {
   int n, d;
   cin >> n >> d;
@@ -11,7 +15,7 @@ int main() {
     int x, y;
     cin >> x >> y;
 
-    if (hypot(x, y) <= d) {
+    if (sq(x) + sq(y) <= sq(d)) {
       cnt++;
     }
   }
