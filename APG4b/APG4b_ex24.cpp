@@ -27,18 +27,7 @@ struct Clock {
   }
 
   void print() {
-    string rslt = "";
-
-    if (h < 10) rslt += "0";
-    rslt += to_string(h) + ":";
-
-    if (m < 10) rslt += "0";
-    rslt += to_string(m) + ":";
-
-    if (s < 10) rslt += "0";
-    rslt += to_string(s);
-
-    cout << rslt << endl;
+    printf("%02d:%02d:%02d\n", h, m, s);
   }
 };
 
