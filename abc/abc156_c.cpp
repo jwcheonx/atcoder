@@ -6,36 +6,16 @@ int main() {
   int n;
   cin >> n;
 
-  int mn, mx;
   vector<int> v(n);
-  rep(i, n) {
-    int x;
-    cin >> x;
+  rep(i, n) cin >> v.at(i);
 
-    if (i == 0) {
-      mn = x;
-      mx = x;
-    } else {
-      mn = min(mn, x);
-      mx = max(mx, x);
-    }
-
-    v.at(i) = x;
-  }
-
-  int ans;
-  for (int p = mn; p <= mx; p++) {
-    int tmp = 0;
+  int ans = 1e9; // big enough integer
+  for (int p = 1; p <= 100; p++) {
+    int sum = 0;
     for (int &x : v) {
-      tmp += pow(x - p, 2);
+      sum += pow(x - p, 2);
     }
-
-    if (p == mn) {
-      ans = tmp;
-    } else {
-      ans = min(ans, tmp);
-    }
-    // cout << "p: " << p << ", ans: " << ans << endl;
+    ans = min(ans, sum);
   }
 
   cout << ans << endl;
