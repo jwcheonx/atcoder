@@ -2,18 +2,11 @@
 using namespace std;
 
 int main() {
-  int a, b;
+  string a, b;
   cin >> a >> b;
+  int ab = stoi(a + b);
 
-  if (b < 10) { // one-digit
-    a *= 10;
-  } else if (b < 100) { // two-digit
-    a *= 100;
-  } else { // 100
-    a *= 1000;
-  }
-
-  float rt = sqrt(a + b);
+  float rt = sqrt(ab);
 
   if (floor(rt) == rt) {
     // rt is an integer
