@@ -2,7 +2,7 @@
 using namespace std;
 
 bool has_divisor(int n, int i) {
-  if (i == n) return false;
+  if (i * i > n) return false;
   if (n % i == 0) return true;
 
   return has_divisor(n, i + 1);
@@ -20,12 +20,8 @@ int main() {
   int x;
   cin >> x;
 
-  const int ub = x * 2; // according to Chebyshev's theorem
-
-  while (x < ub) {
-    if (is_prime(x)) break;
-    x++;
-  }
+  // largest possible value of x: 100003
+  while (!is_prime(x)) x++;
 
   cout << x << endl;
 }
